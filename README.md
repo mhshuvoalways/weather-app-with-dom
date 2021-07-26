@@ -1,6 +1,6 @@
-# JS WEATHER APP
+# JS Weather App
 
-This is a project template for Mern-Stack-Dynamic-Portfolio. It lives at https://js-weather-app-mhs.herokuapp.com
+This is a simple weather app with DOM. It lives at https://js-weather-app-with-dom-mhs.herokuapp.com
 
 ## Get started
 
@@ -14,7 +14,7 @@ npm install
 In backend and frontend just hit...
 ```bash
 npm start
-run index.html locally in public folder
+Run localhost:5000 on the browser
 ```
 
 ```bash
