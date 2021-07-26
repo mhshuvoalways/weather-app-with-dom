@@ -23,7 +23,7 @@ window.onload = function () {
         getWeatherData()
     })
 
-    axios.get('/history')
+    axios.get('http://localhost:5000/history')
         .then(({ data }) => {
             if (data.length > 0) {
                 updateHistory(data)
@@ -33,7 +33,6 @@ window.onload = function () {
         })
         .catch(e => {
             console.log(e)
-            alert('Error Occurred')
         })
 
     cityInput.addEventListener('keypress', function (e) {
@@ -41,10 +40,9 @@ window.onload = function () {
             if (e.target.value) {
                 getWeatherData(e.target.value, null, weather => {
                     e.target.value = ''
-                    axios.post('/history', weather)
+                    axios.post('http://localhost:5000/history', weather)
                         .then(({ data }) => updateHistory(data))
                         .catch(e => {
-                            console.log(e)
                             alert('Error Occurred')
                         })
                 })
@@ -95,11 +93,10 @@ function setWeather(weather) {
 function updateHistory(history) {
     historyElm.innerHTML = ''
     history = history.reverse()
-
     history.forEach(h => {
         let tempHistory = masterHistory.cloneNode(true)
         tempHistory.id = ''
-        tempHistory.getElementsByClassName('condition')[0].src = `${ICON_URL}${h.icon}.png`
+        tempHistory.getElementsByClassName('pic')[0].src = `${ICON_URL}${h.icon}.png`
         tempHistory.getElementsByClassName('city')[0].innerHTML = h.name
         tempHistory.getElementsByClassName('country')[0].innerHTML = h.country
         tempHistory.getElementsByClassName('main')[0].innerHTML = h.main
