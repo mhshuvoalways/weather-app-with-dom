@@ -23,7 +23,7 @@ window.onload = function () {
         getWeatherData()
     })
 
-    axios.get('http://localhost:5000/history')
+    axios.get('/history')
         .then(({ data }) => {
             if (data.length > 0) {
                 updateHistory(data)
@@ -40,7 +40,7 @@ window.onload = function () {
             if (e.target.value) {
                 getWeatherData(e.target.value, null, weather => {
                     e.target.value = ''
-                    axios.post('http://localhost:5000/history', weather)
+                    axios.post('/history', weather)
                         .then(({ data }) => updateHistory(data))
                         .catch(e => {
                             alert('Error Occurred')

@@ -1,5 +1,5 @@
 {
-  "name": "js-weather-app",
+  "name": "js-weather-app-with-dom",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -18,5 +18,9 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
+  },
+  "engines": {
+    "node": "v16.2.0",
+    "npm": "7.19.1"
   }
 }
